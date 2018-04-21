@@ -1,0 +1,38 @@
+<%= form_with(model: @note, local: true, url: event_notes_url) do |form| %>
+  <% if @note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+      <% @note.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :Events_id %>
+    <%=# form.text_field :Event_id, id: :note_Events_id
+    %>
+    <% eary = Array.new %>
+    <% Event.all.each do |e| eary.push(e.id) end %>
+    
+    <%= form.select :Events_id, eary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Users_id %>
+    <% uary = Array.new %>
+    <% User.all.each do |e| uary.push(e.id) end %>
+    <%= form.select :Users_id, uary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :note_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
