@@ -1,4 +1,4 @@
 class Note < ApplicationRecord
-  belongs_to :Events
-  belongs_to :Users
+  belongs_to :event
+  
 end

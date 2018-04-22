@@ -1,13 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Events:</strong>
-  <%= @note.Events %>
+  <strong>Event</strong> <br>
+  <%= @note.event %> <br> 
+  <%= @note.event.subject %> <br>
+  <%= @note.event.assignment %> <br>
+  <%= @note.event.start_time %> <br>
 </p>
 
 <p>
   <strong>Users:</strong>
-  <%= @note.Users %>
+  <%= @note.user_id %>
+ 
 </p>
 
 <p>
@@ -15,5 +19,5 @@
   <%= @note.description %>
 </p>
 
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<%= link_to 'Edit', edit_event_note_path(@note.event, @note) %>
+<%= link_to 'Back', event_notes_path %>

@@ -11,20 +11,20 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :Events_id %>
+    <%= form.label :event_id %>
     <%=# form.text_field :Event_id, id: :note_Events_id
     %>
     <% eary = Array.new %>
     <% Event.all.each do |e| eary.push(e.id) end %>
     
-    <%= form.select :Events_id, eary %>
+    <%= form.select :event_id, eary %>
   </div>
 
   <div class="field">
-    <%= form.label :Users_id %>
+    <%= form.label :user_id %>
     <% uary = Array.new %>
     <% User.all.each do |e| uary.push(e.id) end %>
-    <%= form.select :Users_id, uary %>
+    <%= form.select :user_id, uary %>
   </div>
 
   <div class="field">

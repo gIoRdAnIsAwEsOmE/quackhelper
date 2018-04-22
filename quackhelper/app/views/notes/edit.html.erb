@@ -2,5 +2,5 @@
 
 <%= render 'form', note: @note %>
 
-<%= link_to 'Show', @note %> |
-<%= link_to 'Back', notes_path %>
+<%= link_to 'Show', event_note_url(@note.event, @note) %> |
+<%= link_to 'Back', event_notes_path %>

@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20180414004800) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.integer "Events_id"
-    t.integer "Users_id"
-    t.string "description"
+    t.integer "event_id"
+    t.integer "user_id"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Events_id"], name: "index_notes_on_Events_id"
-    t.index ["Users_id"], name: "index_notes_on_Users_id"
+    t.index ["event_id"], name: "index_notes_on_event_id"
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

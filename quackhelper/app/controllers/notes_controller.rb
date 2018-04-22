@@ -4,31 +4,42 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    event = Event.find(params[:event_id])
+    @notes = event.notes
   end
 
   # GET /notes/1
   # GET /notes/1.json
   def show
+     event = Event.find(params[:event_id])
+     @note = event.notes.find(params[:id])
   end
 
   # GET /notes/new
   def new
-    @note = Note.new
+    event = Event.find(params[:event_id])
+    puts params
+    puts event, params[:event_id]
+    puts event.notes
+    @note = event.notes.new
+    
   end
 
   # GET /notes/1/edit
   def edit
+      event = Event.find(params[:event_id])
+      @note = event.notes.find(params[:id])
   end
 
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(note_params)
-
+    event = Event.find(params[:event_id])
+    @note = event.notes.create(note_params)
+    
     respond_to do |format|
-      if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+      if @note.save 
+        format.html { redirect_to [@note.event,@note], notice: 'Note was successfully created.' }
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new }
@@ -40,9 +51,11 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
+    event = Event.find(params[:event_id])
+    @note = event.notes.find(params[:id])
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        format.html { redirect_to [event, @note], notice: 'Note was successfully updated.' }
         format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit }
@@ -54,9 +67,11 @@ class NotesController < ApplicationController
   # DELETE /notes/1
   # DELETE /notes/1.json
   def destroy
+    event = Event.find(params[:event_id])
+    @note = event.notes.find(params[:id])
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
+      format.html { redirect_to event_notes_url, notice: 'Note was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

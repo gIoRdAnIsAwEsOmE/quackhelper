@@ -15,12 +15,12 @@
   <tbody>
     <% @notes.each do |note| %>
       <tr>
-        <td><%= note.Events %></td>
-        <td><%= note.Users %></td>
+        <td><%= note.event_id %></td>
+        <td><%= note.user_id %></td>
         <td><%= note.description %></td>
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', event_note_url(note.event, note) %></td>
+        <td><%= link_to 'Edit', edit_event_note_path(note.event, note) %></td>
+        <td><%= link_to 'Destroy', event_note_path(note.event, note), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
