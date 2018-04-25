@@ -4,8 +4,8 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    event = Event.find(params[:event_id])
-    @notes = event.notes
+    @event = Event.find(params[:event_id])
+    @notes = @event.notes
   end
 
   # GET /notes/1

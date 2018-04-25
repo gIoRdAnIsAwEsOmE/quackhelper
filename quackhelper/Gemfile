@@ -10,8 +10,15 @@ end
 gem 'rails', '~> 5.1.6'
 
 gem "simple_calendar", "~> 2.0"
-gem 'google-api-client', '~> 0.11'
+gem 'google_drive'
 gem "carrierwave", "~> 0.9"
+gem "bootstrap_form",
+    git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
+    branch: "master"
+#gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'jquery-rails'
+
+gem 'bootstrap-sass', '~> 3.3.7'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server

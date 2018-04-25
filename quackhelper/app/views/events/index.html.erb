@@ -29,11 +29,9 @@
 <br>
 <%= month_calendar events: @events do |date, events| %>
   <%= date %>
-
   <% events.each do |event| %>
     <div>
-      <%= event.subject %>
-      <%= event.assignment %>
+      <%= link_to event.subject + ' ' + event.assignment, event%>
     </div>
   <% end %>
 <% end %>

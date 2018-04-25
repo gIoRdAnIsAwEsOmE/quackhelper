@@ -16,7 +16,7 @@
     <% @notes.each do |note| %>
       <tr>
         <td><%= note.event_id %></td>
-        <td><%= note.user_id %></td>
+        <td><%= note.personuser %></td>
         <td><%= note.description %></td>
         <td><%= link_to 'Show', event_note_url(note.event, note) %></td>
         <td><%= link_to 'Edit', edit_event_note_path(note.event, note) %></td>
@@ -29,3 +29,4 @@
 <br>
 
 <%= link_to 'New Note', new_event_note_url %>
+<%= link_to 'Back', event_path(@event) %>

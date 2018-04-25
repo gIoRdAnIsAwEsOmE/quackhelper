@@ -1,19 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+
+<table class="table table-striped">
+<tbody>
+<tr>
+  <td>
   <strong>Start time:</strong>
   <%= @event.start_time %>
-</p>
-
-<p>
+  </td>
+</tr>
+<br>
+<tr>
+  <td>
   <strong>Assignment:</strong>
   <%= @event.assignment %>
-</p>
-
-<p>
+  </td>
+</tr>
+<br>
+<tr>
+  <td>
   <strong>Subject:</strong>
   <%= @event.subject %>
-</p>
+ </td>
+</tr>
+</tbody>
+</table>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
+<br>
+<br>
+<%= link_to 'Notes', event_notes_url(@event) %>
+<%= link_to 'Edit', edit_event_path(@event) %>
 <%= link_to 'Back', events_path %>
